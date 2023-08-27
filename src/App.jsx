@@ -8,7 +8,7 @@ import Details from './pages/Details/Details';
 import SearchResult from './pages/SearchResult/SearchResult';
 import Explore from './pages/Explore/Explore';
 import PageNotFound from './pages/404/PageNotFound';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 // import Footer from './components/Footer/Footer';
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <Header></Header> */}
+    <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}/>
         <Route path="/:mediaType/:id" element={<Details></Details>}/>

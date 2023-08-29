@@ -3,7 +3,7 @@ import React from 'react';
 const note = () => {
     return (
         <div>
-            <h2>carosel banate hobe</h2>
+            <h2> 03:45 min  </h2>
         </div>
     );
 };

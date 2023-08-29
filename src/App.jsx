@@ -9,12 +9,12 @@ import SearchResult from './pages/SearchResult/SearchResult';
 import Explore from './pages/Explore/Explore';
 import PageNotFound from './pages/404/PageNotFound';
 import Header from './components/Header/Header';
-// import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const dispatch  = useDispatch();
   const url = useSelector((state) => state.home.url)
-  console.log(url);
+  // console.log(url);
 
   useEffect(() => {
     const fetchApiConfig = async () => {
@@ -45,7 +45,7 @@ function App() {
         <Route path="/explore/:mediaType" element={<Explore></Explore>}/>
         <Route path="*" element={<PageNotFound></PageNotFound>}/>
       </Routes>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </BrowserRouter>
   );
 }

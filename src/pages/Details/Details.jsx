@@ -4,6 +4,8 @@ import DetailsBanner from './DetailsBanner/DetailsBanner';
 import './style.scss'
 import Cast from './Cast/Cast';
 import VideosSection from './VideosSection/VideosSection';
+import Similar from './Carousels/Similar';
+import Recommendation from './Carousels/Recommendation';
 
 const Details = () => {
     const { mediaType, id } = useParams();
@@ -14,6 +16,8 @@ const Details = () => {
             <DetailsBanner video={data?.results?.[0]} crew={credits?.crew}></DetailsBanner>
             <Cast data={credits?.cast} loading={creditsLoading}></Cast>
             <VideosSection data={data} loading={loading}></VideosSection>
+            <Similar mediaType={mediaType} id={id}></Similar>
+            <Recommendation mediaType={mediaType} id={id}></Recommendation>
         </div>
     );
 };

@@ -14,22 +14,22 @@ import CircleRating from "../CircleRating/CircleRating";
 import Genres from "../Genres/Genres";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import Img from "../LazyLoadimage/img";
-const Carousel = ({ data, loading, endpoint }) => {
+const Carousel = ({ data, loading, endpoint, title }) => {
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home)
     const naviget = useNavigate();
 
     const navigation = (dir) => {
         const container = carouselContainer.current;
-        const scrollAmount = dir === "left" ? container.scrollLeft - (container.offsetWidth + 20) : 
-        container.scrollLeft + (container.offsetWidth + 20);
+        const scrollAmount = dir === "left" ? container.scrollLeft - (container.offsetWidth + 20) :
+            container.scrollLeft + (container.offsetWidth + 20);
         container.scrollTo({
             left: scrollAmount,
             behavior: "smooth",
         })
     }
 
-    const skItem = () =>{
+    const skItem = () => {
         return (
             <div className="skeletonItem">
                 <div className="posterBlock skeleton"></div>
@@ -43,6 +43,10 @@ const Carousel = ({ data, loading, endpoint }) => {
     return (
         <div className="carousel">
             <ContentWrapper>
+                {
+                    title &&
+                    <div className="carouselTitle">{title}</div>
+                }
                 <BsFillArrowLeftCircleFill className="carouselLeftNav arrow" onClick={() => navigation("left")}></BsFillArrowLeftCircleFill>
                 <BsFillArrowRightCircleFill className="carouselRightNav arrow" onClick={() => navigation("right")}></BsFillArrowRightCircleFill>
             </ContentWrapper>

@@ -3,8 +3,8 @@ import './style.scss'
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../../hooks/useFeatch';
 import { useSelector } from 'react-redux';
-import Img from '../../../components/LazyLoadimage/img';
 import ContentWrapper from '../../../components/ContentWrapper/ContentWrapper';
+import Img from '../../../components/lazyLoadImage/Img';
 
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
@@ -41,8 +41,9 @@ const HeroBanner = () => {
                                     type="text"
                                     onChange={(e) => setQuery(e.target.value)}
                                     onKeyUp={searchQueryHandler}
+                                    
                                     placeholder='Search for movie or tv show...' />
-                                <button>Search</button>
+                                <button onClick={searchQueryHandler}>Search</button>
                             </div>
                         </div>
                     </div>

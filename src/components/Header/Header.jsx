@@ -8,6 +8,10 @@ import "./style.scss";
 
 import logo from "../../assets/movix-logo.svg";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebase.config";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../store/userSlice";
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -17,6 +21,7 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
+    const dispatch = useDispatch();
 
     useEffect(() =>{
         window.scrollTo(0, 0)
@@ -71,6 +76,16 @@ const Header = () => {
         setMobileMenu(false)
     }
 
+    const handelLogout = () =>{
+        dispatch(logoutUser)
+        signOut(auth)
+        .then(() => {
+            
+          }).catch((error) => {
+            console.log(error);
+          });
+    }
+
 
 
     return (
@@ -80,9 +95,15 @@ const Header = () => {
                     <Link to="/"><img src={logo} alt="" /></Link>
                 </div>
                 <ul className="menuItems">
+                    <Link to="/login"><li className="menuItem">Login</li></Link>
+
+                    <Link to="/signUp"><li className="menuItem">Sign Up</li></Link>
+                  <li onClick={handelLogout} className="menuItem">Log Out</li>
+
                     <li className="menuItem" onClick={() => {
                         navigationHandler("movie")
-                    }}>MOvies</li>
+                    }}>Movies</li>
+
                     <li className="menuItem" onClick={() => {
                         navigationHandler("tv")
                     }}>TV Shows</li>

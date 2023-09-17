@@ -1,0 +1,88 @@
+// style.scss
+
+.sign-up-container {
+    background-image: url('https://i.ibb.co/rtdxtgJ/ff.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6; // Add opacity to the form container
+  }
+  .heading{
+    margin-bottom: 10px;
+    color: rgb(49, 43, 43);
+    font-weight: bold;
+    font-size: 32px;
+  }
+  form {
+    background-color: black;
+    color:white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 500px; 
+    opacity: 0.8;
+    
+  }
+  
+  
+
+  
+
+.btn {
+    background: rgb(202, 86, 86);
+    color: white;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+    width: 100%;
+  }
+  
+  .btn:hover {
+    background-color: #d04f4f; 
+    transform: scale(1.01); 
+  }
+  
+
+
+
+.google-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4285f4; 
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .google-btn:hover {
+    background-color: #357ae8;
+  }
+  
+  .google-btn svg {
+    margin-right: 10px; 
+    font-size: 18px; 
+  }
+  
+  
+  input {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+  }
+  

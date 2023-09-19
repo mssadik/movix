@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.scss'
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../../hooks/useFeatch';
 import { useSelector } from 'react-redux';
 import ContentWrapper from '../../../components/ContentWrapper/ContentWrapper';
 import Img from '../../../components/lazyLoadImage/Img';
+import Swal from 'sweetalert2';
 
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
@@ -12,6 +13,9 @@ const HeroBanner = () => {
     const naviget = useNavigate()
     const { url } = useSelector((state) => state.home)
     const { data, loading } = useFetch("/movie/upcoming")
+    const input = useRef();
+    const {email} = useSelector((state) => state.user)
+    
 
     useEffect(() => {
         const bg = url.backdrop + data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
@@ -23,6 +27,36 @@ const HeroBanner = () => {
             naviget(`/search/${query}`);
         }
     }
+
+    const handelSearchQuery = (query) =>{
+        
+        if(!email){
+            Swal.fire({
+                title: 'Login first plases',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    naviget('/SignUp')
+                  )
+                }
+              })
+
+            }else if(email){
+                naviget(`/search/${query}`);
+            }
+            if(query.length !== 0){
+
+                naviget(`/search/${query}`);
+            }
+            return;
+        
+    }
+    
     return (
         <div>
             <div className="heroBanner">
@@ -39,11 +73,12 @@ const HeroBanner = () => {
                             <div className="searchInput">
                                 <input
                                     type="text"
+                                    required={true}
                                     onChange={(e) => setQuery(e.target.value)}
                                     onKeyUp={searchQueryHandler}
-                                    
+                                    ref={input}
                                     placeholder='Search for movie or tv show...' />
-                                <button onClick={searchQueryHandler}>Search</button>
+                                <button onClick={() => handelSearchQuery(input.current?.value)}>Search</button>
                             </div>
                         </div>
                     </div>

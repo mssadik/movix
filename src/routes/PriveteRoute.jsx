@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 const PrivateRoute = ({ children }) => {
     const { email, isLoading } = useSelector((state) => state.user);
     const dispatch = useDispatch();
+    const navitate = useNavigate();
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -25,8 +26,9 @@ const PrivateRoute = ({ children }) => {
         return <h2>Loading...</h2>;
     }
 
-    if(!email && !isLoading){
-        return <Navigate to="/signUp"></Navigate>
+    if(!email){
+        console.log('email nai' , email);
+        return <Navigate to="/signUp" ></Navigate>
     }
 
     

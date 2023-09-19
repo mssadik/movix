@@ -13,7 +13,6 @@ import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import PrivateRoute from './routes/PriveteRoute';
-import Per from './pages/Per/Per';
 function App() {
   const dispatch  = useDispatch();
   const url = useSelector((state) => state.home.url)
@@ -64,7 +63,6 @@ function App() {
         <Route path="/search/:query" element={<PrivateRoute><SearchResult></SearchResult></PrivateRoute>}/>
 
         <Route path="/explore/:mediaType" element={<PrivateRoute><Explore></Explore></PrivateRoute>}/>
-        <Route path="/per" element={<PrivateRoute><Per></Per></PrivateRoute>}/>
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>

@@ -14,7 +14,7 @@
         font-size: 35px;
         color: white;
         position: absolute;
-        bottom:-200px;
+        bottom:0px;
         transform: translateY(-50%);
         cursor: pointer;
         opacity: 0.5;
@@ -28,10 +28,10 @@
         }
     }
     .carouselLeftNav {
-        left: 30px;
+        left: 400px;
     }
     .carouselRightNav {
-        right: 30px;
+        right: 400px;
     }
     .loadingSkeleton {
         display: flex;

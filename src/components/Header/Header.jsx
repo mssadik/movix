@@ -24,7 +24,6 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const {email} = useSelector((state) => state.user)
-    console.log(email);
 
     useEffect(() =>{
         window.scrollTo(0, 0)
@@ -100,7 +99,6 @@ const Header = () => {
                 </div>
                 <ul className="menuItems">
                 <Link to="/"><li className="menuItem">Home</li></Link>
-                <Link to="/per"><li className="menuItem">per</li></Link>
                     
                   {email ? <li onClick={handelLogout} className="menuItem">Log Out</li> : <div> <Link to="/signUp"><li className="menuItem">Sign Up</li></Link></div>}
 

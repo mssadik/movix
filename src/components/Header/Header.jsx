@@ -10,7 +10,7 @@ import logo from "../../assets/movix-logo.svg";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../store/userSlice";
 
 const Header = () => {
@@ -22,6 +22,9 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
+
+    const {email} = useSelector((state) => state.user)
+    console.log(email);
 
     useEffect(() =>{
         window.scrollTo(0, 0)
@@ -77,7 +80,7 @@ const Header = () => {
     }
 
     const handelLogout = () =>{
-        dispatch(logoutUser)
+        dispatch(logoutUser())
         signOut(auth)
         .then(() => {
             
@@ -95,10 +98,9 @@ const Header = () => {
                     <Link to="/"><img src={logo} alt="" /></Link>
                 </div>
                 <ul className="menuItems">
-                    <Link to="/login"><li className="menuItem">Login</li></Link>
-
-                    <Link to="/signUp"><li className="menuItem">Sign Up</li></Link>
-                  <li onClick={handelLogout} className="menuItem">Log Out</li>
+                <Link to="/"><li className="menuItem">Home</li></Link>
+                    
+                  {email ? <li onClick={handelLogout} className="menuItem">Log Out</li> : <div> <Link to="/signUp"><li className="menuItem">Sign Up</li></Link></div>}
 
                     <li className="menuItem" onClick={() => {
                         navigationHandler("movie")

@@ -29,12 +29,9 @@ const PrivateRoute = ({ children }) => {
         return <Navigate to="/signUp"></Navigate>
     }
 
-    if (email) {
+    
         return children;
-    }
-
-    // Handle the case when the user is not authenticated
-    return <h2>Not authenticated.</h2>;
+    
 };
 
 export default PrivateRoute;

@@ -12,8 +12,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
-import PriveteRoute from './routes/PriveteRoute';
-
+import PrivateRoute from './routes/PriveteRoute';
 function App() {
   const dispatch  = useDispatch();
   const url = useSelector((state) => state.home.url)
@@ -62,8 +61,9 @@ function App() {
         <Route path="/" element={<Home></Home>}/>
         <Route path="/:mediaType/:id" element={<Details></Details>}/>
         <Route path="/search/:query" element={<SearchResult></SearchResult>}/>
-        <Route path="/explore/:mediaType" element={<PriveteRoute><Explore></Explore></PriveteRoute>}/>
-        {/* <Route path="/explore/:mediaType" element={<Explore></Explore>}/> */}
+
+        <Route path="/explore/:mediaType" element={<PrivateRoute><Explore></Explore></PrivateRoute>}/>
+
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<PageNotFound></PageNotFound>}/>

@@ -14,19 +14,17 @@ const Login = () => {
     const onSubmit = async ({ password, email }) => {
         try {
             await dispatch(signInUser({ email, password }));
-            // reset();
+            
         } catch (error) {
-            // console.error('Login error:', error);
         }
     };
 
     const handleGoogleSign = async () => {
         try {
             await dispatch(googleSignIn());
-            navigate('/'); // Navigate to the home page after successful Google sign-in
+            navigate('/'); 
         } catch (error) {
             console.error('Google sign-in error:', error);
-            // Handle Google sign-in error, e.g., display an error message to the user
         }
     }
 
@@ -66,9 +64,9 @@ const Login = () => {
                     <input className="btn" type="submit" /> <br />
                     <p>New here create <Link to="/signUp">Account</Link></p>
                     <div style={{ marginBottom: "12px" }}>
-                        --------------------------------------------------------------
+                        --------------------------------------------------------------------------------------
                         <p style={{ textAlign: 'center' }}>Or</p>
-                        --------------------------------------------------------------
+                        --------------------------------------------------------------------------------------
                     </div>
                     <Link onClick={handleGoogleSign} className="google-btn">
                         <FaGoogle /> Countine with Google

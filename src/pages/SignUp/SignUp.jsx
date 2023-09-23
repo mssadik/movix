@@ -78,7 +78,7 @@ const SignUp = () => {
                     <p>Already have an <Link to="/login">Account</Link></p>
                     <div style={{ marginBottom: "12px" }}>
 
-                        -------------------------------------------------------------- <p style={{ textAlign: 'center' }}>Or</p> --------------------------------------------------------------
+                        -------------------------------------------------------------------------------------- <p style={{ textAlign: 'center' }}>Or</p> --------------------------------------------------------------------------------------
                     </div>
                     <Link onClick={handleGoogleSign} className="google-btn"><FaGoogle></FaGoogle>Countine with Google</Link>
                 </form>
